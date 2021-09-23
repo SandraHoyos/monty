@@ -8,7 +8,7 @@
  */
 void free_stack(stack_t **stack, unsigned int linenum)
 {
-	if (stk == NULL)
+	if (stack == NULL)
 		return;
 	while (*stack != NULL)
 		pop(stack, linenum);
