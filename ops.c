@@ -3,12 +3,12 @@
 /**
  * _ops - compare functions to tokens and executes them
  * @token: command recieved
- * @stk: stack
+ * @stack: stack
  * @linenum: number of line
  * Return: void
  */
-void _ops(char *token, stack_t **stk, unsigned int linenum)
-{
+void _ops(char *token, stack_t **stack, unsigned int linenum)
+OA{
 	int a = 0;
 
 	instruction_t op[] = {
@@ -44,7 +44,7 @@ void _ops(char *token, stack_t **stk, unsigned int linenum)
 
 	if (variables.check == 1 && strcmp(token, "push") == 0)
 	{
-		_queue(stk, linenum);
+		_queue(stack, linenum);
 		return;
 	}
 
@@ -52,24 +52,24 @@ void _ops(char *token, stack_t **stk, unsigned int linenum)
 	{
 		if (strcmp(token, op[a].opcode) == 0)
 		{
-			op[a].f(stk, linenum);
+			op[a].f(stack, linenum);
 			return;
 		}
 		a++;
 	}
 	printf("L%d: unknown instruction %s\n", linenum, token);
-	free_stk(stk, linenum);
+	free_stack(stack, linenum);
 	exit(EXIT_FAILURE);
 }
 
 /**
  * nop - function does nothing
- * @stk: stack
+ * @stack: stack
  * @linenum: line number
  * Return: void
  */
-void nop(stack_t **stk, unsigned int linenum)
+void nop(stack_t **stack, unsigned int linenum)
 {
-	(void)stk;
+	(void)stack;
 	(void)linenum;
 }
