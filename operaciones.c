@@ -7,7 +7,7 @@
  * Return: void
  */
 
- void add(stack_t **stack, unsigned int linenum)
+void add(stack_t **stack, unsigned int linenum)
 {
 	int adding;
 
