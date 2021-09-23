@@ -8,7 +8,7 @@
  * Return: void
  */
 void _ops(char *token, stack_t **stack, unsigned int linenum)
-OA{
+{
 	int a = 0;
 
 	instruction_t op[] = {
