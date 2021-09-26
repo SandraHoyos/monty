@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 	char *buff = NULL, *string;
 	size_t s = 0;
 	unsigned int linenum = 1;
-	stack_t *stack = NULL;
+	stack_t *stk = NULL;
 
 	variables.check = 0;
 
@@ -32,25 +32,25 @@ int main(int argc, char **argv)
 		if (*buff != '\n')
 		{
 			string = strtok(buff, "\n");
-			_tokenizer(string, &stack, linenum);
+			_tokenizer(string, &stk, linenum);
 		}
 		linenum++;
 	}
 	fclose(file);
 	free(buff);
-	if (stack != NULL)
-		free_stack(&stack, linenum);
+	if (stk != NULL)
+		free_stk(&stk, linenum);
 	return (EXIT_SUCCESS);
 }
 
 /**
  * _tokenizer - function to tokenize strings and commands
  * @string: string to be tokenized
- * @stack: pointer to the stack
+ * @stk: pointer to the stack
  * @linenum: line numbers
  * Return: void
  */
-void _tokenizer(char *string, stack_t **stack, unsigned int linenum)
+void _tokenizer(char *string, stack_t **stk, unsigned int linenum)
 {
 	char *token;
 	char *tokens;
@@ -65,14 +65,14 @@ void _tokenizer(char *string, stack_t **stack, unsigned int linenum)
 		if (!check_digit(token))
 		{
 			printf("L%d: usage: push integer\n", linenum);
-			free_stack(stack, linenum);
+			free_stk(stk, linenum);
 			exit(EXIT_FAILURE);
 		}
 		variables.holder = atoi(token);
-		_ops(tokens, stack, linenum);
+		_ops(tokens, stk, linenum);
 	}
 	else
-		_ops(token, stack, linenum);
+		_ops(token, stk, linenum);
 }
 
 /**

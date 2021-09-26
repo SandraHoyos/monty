@@ -50,25 +50,25 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void _tokenizer(char *string, stack_t **stack, unsigned int linenum);
-void free_stack(stack_t **stack, unsigned int linenum);
+void _tokenizer(char *string, stack_t **stk, unsigned int linenum);
+void free_stk(stack_t **stk, unsigned int linenum);
 int check_digit(char *token);
-void _ops(char *token, stack_t **stack, unsigned int linenum);
-void push(stack_t **stack, unsigned int linenum);
-void pall(stack_t **stack, unsigned int linenum);
-void pint(stack_t **stack, unsigned int linenum);
-void pop(stack_t **stack, unsigned int linenum);
-void swap(stack_t **stack, unsigned int linenum);
-void add(stack_t **stack, unsigned int linenum);
-void nop(stack_t **stack, unsigned int linenum);
-void sub(stack_t **stack, unsigned int linenum);
-void _div(stack_t **stack, unsigned int linenum);
-void mul(stack_t **stack, unsigned int linenum);
-void mod(stack_t **stack, unsigned int linenum);
-void pchar(stack_t **stack, unsigned int linenum);
-void pstr(stack_t **stack, unsigned int linenum);
-void rotl(stack_t **stack, unsigned int linenum);
-void rotr(stack_t **stack, unsigned int linenum);
-void _queue(stack_t **stack, unsigned int linenum);
+void _ops(char *token, stack_t **stk, unsigned int linenum);
+void push(stack_t **stk, unsigned int linenum);
+void pall(stack_t **stk, unsigned int linenum);
+void pint(stack_t **stk, unsigned int linenum);
+void pop(stack_t **stk, unsigned int linenum);
+void swap(stack_t **stk, unsigned int linenum);
+void add(stack_t **stk, unsigned int linenum);
+void nop(stack_t **stk, unsigned int linenum);
+void sub(stack_t **stk, unsigned int linenum);
+void _div(stack_t **stk, unsigned int linenum);
+void mul(stack_t **stk, unsigned int linenum);
+void mod(stack_t **stk, unsigned int linenum);
+void pchar(stack_t **stk, unsigned int linenum);
+void pstr(stack_t **stk, unsigned int linenum);
+void rotl(stack_t **stk, unsigned int linenum);
+void rotr(stack_t **stk, unsigned int linenum);
+void _queue(stack_t **stk, unsigned int linenum);
 
 #endif
